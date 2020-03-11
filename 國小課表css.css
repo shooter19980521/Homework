@@ -1,0 +1,28 @@
+body
+        {
+            background-color:rgb(217, 240, 12)
+        }
+        caption
+        {
+            color: springgreen;
+        }
+        thead
+        {
+            color:red
+        }
+        .morningbody tr
+        {
+            color:black
+        }
+        tbody
+        {
+            color:violet
+        }
+        .afternoon
+        {
+            color:rgb(0, 89, 255)
+        }
+        td
+        {
+            text-align: center;
+        }
