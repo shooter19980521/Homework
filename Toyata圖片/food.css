@@ -1,0 +1,384 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.food-header {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.My-account {
+    display: flex;
+    align-items: center;
+}
+
+.little-pic {
+    display: flex;
+    align-items: center;
+}
+
+.KARDONE {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.KARDONE-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.Menu {
+    display: flex;
+}
+
+.Menu h3.p {
+    margin: 0 10px;
+}
+
+.HEALTLY-FOOD {
+    display: flex;
+}
+
+.Fresh-and-Delicious {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 500px;
+}
+
+.Fresh-and-Delicious-txt {
+    margin-top: 90px;
+    margin-left: 50px;
+}
+
+.Fresh-and-Delicious-txt {
+    display: flex;
+    flex-direction: column;
+}
+
+.Fresh-and-Delicious-txt1 font {
+    font-size: 60px;
+}
+
+.Fresh-and-Delicious-txt2 font {
+    font-size: 30px;
+    color: #ff0;
+}
+
+.Fresh-and-Delicious-txt input {
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 10%;
+}
+
+.math {
+    color: rgb(109, 101, 101);
+    display: flex;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+}
+
+.more-food {
+    display: flex;
+    width: 100%;
+    height: 300px;
+    justify-content: space-around;
+    margin-left: 15px;
+}
+
+.more-food-pic {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.more-food-pic img {
+    margin: 0;
+    height: 50%;
+
+}
+
+.more-food-pic h4 {
+    position: absolute;
+    bottom: 90px;
+}
+
+.three-pic {
+    position: relative;
+    display: flex;
+    margin: 0 15%;
+}
+
+.three-pic-1 {
+    position: relative;
+}
+
+.three-pic-2 {
+    position: relative;
+}
+.three-pic-3{
+    position: relative;
+}
+.three-pic-1 h1 {
+    position: absolute;
+    left: 30px;
+    bottom: 100px;
+    color: #fff;
+}
+
+.three-pic-2 h1 {
+    position: absolute;
+    color: #fff;
+    top: 150px;
+    left: 30px;
+}
+.three-pic-3 h1 {
+    position: absolute;
+    color: #fff;
+    bottom: 150px;
+    left: 30px;
+}
+.three-pic-3 h6{
+    position: absolute;
+    color: #fff;
+    bottom: 120px;
+    left: 30px;
+}
+
+
+.three-pic-1 input {
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    position: absolute;
+    left: 30px;
+    bottom: 70px;
+    border-bottom: 1px solid #fff;
+}
+
+.three-pic-2-input {
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    position: relative;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    bottom: 100px;
+    left: 30px;
+}
+.three-pic-3-input {
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    position: relative;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    bottom: 80px;
+    left: 30px;
+}
+
+.Featured-Products {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 400px;
+}
+.Featured-Products .pic{
+    display: flex;
+}
+.pic-3input{
+    display: flex;
+}
+.pic-3button{
+    height: 35px;
+    margin-right: 5px;
+}
+.pic-3button2{
+    height: 35px;
+    width: 35px;
+    margin-right: 5px;
+}
+.blueberrypic{
+    position:absolute;
+    right: 200px;
+    top: 100px;
+}
+.twenty-OFF-txt{
+    font-size: 70px;
+}
+.twenty-OFF{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    background-color: #fff;
+    position: absolute;
+    left: 350px;
+    top: 100px;
+}
+.twenty-OFF-txt2{
+    font-size: 30px;
+}
+.twenty-OFF-SHOPNOW{
+    width: 150px;
+    height: 35px;
+    border: 0px;
+}
+.orange{
+    position: relative;
+    margin: 3px;
+    display: flex;
+    justify-content: center;
+    height: 930px;
+}
+
+.blueberry{
+    display: flex;
+    position:relative;
+    width: 100%;
+    height: 600px;
+}
+.fourorangepic{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.fourorangepic1
+{
+    display: flex;
+}
+.fourorangepic2{
+    display: flex;
+
+}
+.fourorangepic11{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+.under1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.under1threetxt{
+    margin-left: 30px;
+    display: flex;
+    width: 82%;
+}
+.under1threetxt div{
+    width: 100%;
+}
+.contect_info {
+background-color: rgba(125,125,125,.1);
+padding-top: 50px;
+height: 300px;
+}
+
+.contect_info .container{
+width: 100%;
+max-width: 1170px;
+height: 400px;
+display: flex;
+justify-content:space-between
+position: relative;
+}
+
+.contect_info .container div{
+width: 22.4%;
+}
+
+.contect_info .information{
+font-size: 40px;
+}
+
+.contect_info .textbox{
+margin: 0 15px;
+position: relative;
+}
+.contect_info .textbox h3{
+font-size: 20px;
+}
+
+.contect_info .textbox h4{
+line-height: 35px;
+}
+
+.contect_info .textbox p{
+font-size: 14px;
+}
+
+.contect_info .textbox div{
+width: 100%;
+height: 35px;
+}
+
+.contect_info .contect_info_text{
+margin-bottom: 40px;
+}
+
+.contect_info input[type=text]{
+width: 100%;
+padding: 12px 5px;
+margin: 4px 0;
+box-sizing: border-box;
+}
+
+.contect_info .send{
+position: absolute;
+width: 30px;
+height: 30px;
+border: none;
+bottom: 50%;
+right: 10px;
+}
+
+.contect_info .send img{
+width: 25px;
+height: 25px;
+}
+
+.contect_info .socialmedia{
+display: flex;
+justify-content: space-around;
+margin: 50px 0;
+}
+
+.contect_info .socialmedia div{
+width: 60px;
+height: 60px;
+}
+.contect_info .socialmedia img{
+width: 60px;
+height: 60px;
+}
+.textbox-newsletter{
+display: flex;
+flex-direction: column;
+position: absolute;
+right: 70px;
+}
+.footer_bottom{
+margin-top: 30px;
+width: 100%;
+height: 50px;
+font-size: 12px;
+background-color: #ffee00;
+display: flex;
+justify-content: center;
+align-items: center;
+}
