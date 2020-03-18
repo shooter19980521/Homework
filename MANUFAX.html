@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-decoration:none;
+        font-family: "Montserrat", Sans-serif;
+        
+    }
+    .header{
+        display: flex;
+        width: 100%;
+        position: absolute; 
+        background-color: grey;
+        color: #ffffff;
+        z-index: 1;
+    }
+    .header-phone a,
+    .header-address{
+        position: relative;
+        display: flex;
+        margin: 7px 0;
+        height: 38px;
+        align-items: center;
+        color: #fff;
+        border: none;
+    }
+    .header-address{
+        margin-left: 85px;
+    }
+    .header-phone a{
+        margin-left: 30px;
+    }
+    .header-phone h4{
+        margin-left: 20px;
+    }
+    .header-address h4{
+        margin-left: 15px;
+    }
+    .header-icon {
+        position:relative;
+        right: -30%;
+        display: flex;
+        align-items: center;
+    }
+    .header-icon a{
+        margin-right: 17px;
+        color: #ffffff;
+    }
+    .header-icon a:hover{
+        color: #2ac5f4;
+    }
+    /*header-manufax*/
+    .header-manufax{
+        width: 100%;
+        display: flex;
+        position: absolute;
+        top: 40px;
+        z-index: 1;
+    }
+    .header-manufax_pic{
+        width: 23%;
+        margin:30px 0;
+        margin-left: 70px;
+    }
+    .header-manufax_a{
+        width: 57.5%;
+        display: flex;
+        align-items: center;
+    }
+    .header-manufax_a a{
+        margin-left: 35px;
+        font-weight:bold;
+        color: #fff;
+    }
+    .header-manufax_a a:hover{
+        color: #2ac5f4;
+    }
+    .search{
+        display: flex;
+        align-items: center;
+        width: 9%;
+        flex-direction: row-reverse;
+        font-size: 25px;
+    }
+    .search a{
+        margin-right: 3px;
+        color: #FFF;
+    }
+    .search a:hover{
+        color: #2ac5f4;
+    }
+    /*header-pic*/
+    .header-pic{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .header-pic-asset_1 img{
+        filter: brightness(50%);
+        position:absolute;
+        /*top: 15px;
+        left: 0; */
+        z-index: 0;
+        width: 100%;
+        height: 950px;
+    }
+    .CONSTRUCTION-txt{
+        font-size: 750%;
+        font-weight:bold;
+        color: #FFF;
+    }
+    .CONSTRUCTION-annotation-txt{
+        color: #FFF;
+        font-size: 157%;
+    }
+    .CONSTRUCTION-txt{
+         margin-top: 500px;
+         font-family: "Montserrat", sans-serif;
+    }
+    .header-pic a{
+        color: #FFF;
+        position: relative;
+        background-color: #2ac5f4;
+        padding: 22px 38px;
+        top: 50px;
+        /*left: 27%; */
+        border-radius: 4%;
+    }
+    .header-pic a:hover{
+        background-color: #000;
+    }
+    .header-pic-change{
+        display: flex;
+        align-items: center;
+        
+    }
+    .header-pic-change a{
+        background-color: #FFF;
+        padding: 8px 8px;
+        border-radius: 50%;
+        margin: 0 8px;
+        top: -10px;
+    }
+    /*OUR-SERVICES-body*/
+    .OUR-SERVICES-body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 80px 0;
+        background-color: #333; 
+        color: #2ac5f4;
+    }
+    .OUR-SERVICES-body h1::before{
+            position:absolute;
+            content:'';
+            border-top: 2.5px solid #2ac5f4;
+            display: block;
+            left: 85px;
+            right: 85px;
+            margin-top: -30px;
+        }
+
+    .OUR-SERVICES-body h1{
+        position:relative;
+            margin: auto;
+        padding-top: 30px;
+        color: #000;
+    }
+    
+    .OUR-SERVICES-body .icon-txt{
+        padding: 60px 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        height: 400px;
+    }
+    .OUR-SERVICES-body .icon{
+        display: flex;
+    }
+    .OUR-SERVICES-body .icon .txt{
+        width: 301px;
+        margin-left: 38px;
+    }
+    .OUR-SERVICES-body .icon .txt h2{
+        margin: 35px 0 20px 0;
+        color: #333;
+        font-size: 18px;
+    }
+    .OUR-SERVICES-body .icon .txt > p{
+        color: #888;
+        font-size: 18px;
+        width: 290px;
+        margin: 35px 0 50px 0;
+    }
+    /*OUR-HISTORY*/
+    .OUR-HISTORY{
+        display: flex;
+        margin:0 99px;
+    }
+    .OUR-HISTORY-txt{
+        width: 44%;
+    }
+    .OUR-HISTORY-txt h2{
+        margin-top: 20px;
+        font-size: 30px;
+        margin-bottom: 40px;
+        letter-spacing: 1.8px;
+    }
+    .OUR-HISTORY-txt h2::before{
+            position:absolute;
+            content:'';
+            border-top: 2.5px solid #2ac5f4;
+            display: block;
+            left: 0px;
+            right: 1250px;
+            margin-top: -30px;
+        }
+    .OUR-HISTORY-txt h3{
+        font-size: 18px;
+        line-height: 34px;
+        letter-spacing: 1.08px;
+        font-weight: 400;
+        margin-bottom: 20px;
+    }
+    .OUR-HISTORY-txt p{
+        color: #888888;
+        font-family: "Lato", Sans-serif;
+        font-size: 17px;
+        font-weight: 300;
+        line-height: 30px;
+        letter-spacing: 0px;
+        margin-bottom: 71px;
+    }
+    .OUR-HISTORY-txt a{
+        padding: 29px 82px;
+        background-color: #2ac5f4 ;
+        color: #fff;
+    }
+    .OUR-HISTORY-txt a:hover{
+        background-color: #000;
+    }
+    .OUR-HISTORY img{
+        margin: 0 15px;
+    }
+    more-pic{
+
+    }
+    .more-pic{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .more-pic_pic{
+        width: 25%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .more-pic img{
+        width: 100%;
+        height: 358px;
+        filter: brightness(75%);
+    }
+    .more-pic h3{
+        color: #fff;
+        position: absolute;
+        text-transform: uppercase;
+        letter-spacing: 1.08px;
+        font-size: 18px;
+        z-index: 1;
+    }
+    /*RECENT-NEWS*/
+    .RECENT-NEWS-body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 80px 0;
+        color: #2ac5f4;
+    }
+    .RECENT-NEWS-body h1::before{
+            position:absolute;
+            content:'';
+            border-top: 2.5px solid #2ac5f4;
+            display: block;
+            left: 85px;
+            right: 85px;
+            margin-top: -30px;
+        }
+
+    .RECENT-NEWS-body h1{
+        position:relative;
+            margin: auto;
+        padding-top: 30px;
+        color: #000;
+    }
+    .RECENT-NEWS-body img{
+        width: 93%;
+        width: 450px;
+        margin: 30px 0%;
+        /* margin-bottom: 30px; */
+    }
+    .littli-a-txt,
+    .RECENT-NEWS-pic-txt .littli-a{
+        margin: 5px 15px;
+    }
+    .RECENT-NEWS-pic-txt{
+        display: flex;
+        flex-direction: column;
+        color: #888;
+    }
+    
+    .RECENT-NEWS-pic-txt > a{
+        margin: 0 0px;
+        text-transform: uppercase;
+        font-size: 18px;
+        letter-spacing: 1.08px;
+        color: #000000;
+        margin-bottom: 11.2px;
+    }
+    .littli-a-txt,
+    .RECENT-NEWS-pic-txt a{
+        color: #333333;
+    }
+    .RECENT-NEWS-pic-txt .littli-a{
+        /* padding: 7px 5px; */
+        font-size: 14px;
+        font-family: "Lato", Sans-serif;
+    }
+     .RECENT-NEWS-pic-txt .littli-a a{
+        letter-spacing: 1.08px;
+        color: #2ac5f4;
+        font-style: italic;
+    } 
+    .littli-a-txt{
+        font-size: 18px;
+        color: #888888;
+        width: 450px;
+        line-height: 30px;
+    }
+    .SEE-ALL-NEW{
+        margin-top: 100px;
+        height: 57.6px;
+        width: 170px;
+        background-color: #2ac5f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .SEE-ALL-NEW:hover{
+        background-color: black;
+    }
+    .SEE-ALL-NEW a{
+        color: #FFF;
+    } 
+    .footer{
+        background-color: #333;
+        padding: 50px 5%;
+        height: 400px;
+        display: flex;
+    }
+    .footer-NAVLGATION,
+    .footer-RECENT,
+    .footer-CONTACTS,
+    .footer-MANUFAX
+    {
+        width: 25%;
+    }
+    .footer-CONTACTS p,
+    .footer-MANUFAX p{
+        color: #888888;
+    font-family: "Lato", Sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 26px;
+    letter-spacing: 0px;
+    padding-right: 50px;
+    }
+    .footer-NAVLGATION{
+        display: flex;
+        flex-direction: column;
+        
+    }
+   
+    .footer-RECENT h2,
+    .footer-NAVLGATION h2{
+        padding-top: 30px;
+        margin-bottom: 15px;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 34px;
+        letter-spacing: 1.08px;
+        color: #fff;
+    }
+    .footer-CONTACTS h2{
+        margin-bottom: 15px;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 34px;
+        letter-spacing: 1.08px;
+        color: #fff;
+    }
+    .footer-NAVLGATION a{
+        color: #ffffff;
+        margin-bottom: 13px;
+    }
+    .footer-NAVLGATION a:hover{
+        color: #2ac5f4;
+    }
+    .footer-RECENT a{
+        font-family: "Lato", Sans-serif;
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 26px;
+        color: #fff;
+    }
+    .footer-RECENT a:hover{
+        color: #2ac5f4;
+    }
+    .footer-RECENT-littli-a{
+        color: #888888;
+        font-size: 14px;
+        margin-left: -30px;
+    }
+    .footer-RECENT-littli-a-Future{
+        margin-top: 30px;
+    }
+    .Email,
+    .Phones{
+        margin-top: 10px;
+    }
+    .footer-CONTACTS a :hover{
+        color: #fff;
+    }
+</style>
+<body>
+    
+    <div class="header">
+        <div class="header-address"><i class="fas fa-map-marker-alt" style="color: #2ac5f4;"></i><h4>Address: 4578 Marmora Road, Glasgow, D04 89GR</h4></div>
+        <div class="header-phone"><a href="#"><i class="fas fa-phone" style="color: #2ac5f4;"></i><h4>Phones: (800) 123-0045 ; (800) 123-0046</h4></a></div>
+        <div class="header-icon">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-vimeo-v"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+    <div class="header-manufax">
+        <div class="header-manufax_pic"><img src="/MANUFAX圖片/asset 0.png" alt=""></div>
+        <div class="header-manufax_a">
+            <a href="#" style="margin-left: 165px; color: #2ac5f4;">HOME</a>
+            <a href="#">ABOUT</a>
+            <a href="#">SERVICES</a>
+            <a href="#">PROJECTS</a>
+            <a href="#">BLOG</a>
+            <a href="#">CONTACTS</a>
+        </div>
+        <div class="search"><a href="#"><i class="fas fa-search"></i></a></div>
+    </div>
+    <div class="header-pic-asset_1"><img src="/MANUFAX圖片/asset 1.png" alt=""></div>
+    <div class="header-pic">
+        
+        <div style="height: 714px; z-index: 0; width: 100%; display: flex;flex-direction: column;align-items: center;justify-content: center;">
+            <div class="CONSTRUCTION-txt"><p>CONSTRUCTION</p></div>
+            <div class="CONSTRUCTION-annotation-txt"><p>SEE HOW A 10-STORIES TOWER’S BEING BUILT, IN A TIME-LAPSE!</p></div>
+            <a href="#" class="header-pic-a">SEE OUR RECENT PROJECTS</a>
+        </div>
+        <div class="header-pic-change" style="z-index: 1;;height: 233px;">
+            <a href="#"></a>
+            <a href="#" style="background-color: rgba(152,152,152,0.824);"></a>
+            <a href="#" style="background-color: rgba(152,152,152,0.824);"></a>
+        </div>
+
+
+        <div class="OUR-SERVICES-body">
+            <div class="OUR SERVICES">
+                <h1>OUR SERVICES</h1>
+            </div>
+            <div class="icon-txt">
+                <div class="icon">
+                    <i class="fas fa-home ;" style="font-size: 78px;"></i>
+                    <div class="txt">
+                        <div><h2>BUILDING INFORMATION MODELING</h2></div>
+                        <p>Oftentimes physical and functional essence of any construction project needs to be represented digitally, in a 3D model format. In...</p>
+                    </div>
+                </div>
+                <div class="icon">
+                    <i class="fab fa-codepen"style="font-size: 78px;"></i>
+                    <div class="txt">
+                        <div><h2>BUILDING INFORMATION MODELING</h2></div>
+                        <p>Oftentimes physical and functional essence of any construction project needs to be represented digitally, in a 3D model format. In...</p>
+                    </div>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-th"  style="font-size: 78px;"></i>
+                    <div class="txt">
+                        <div><h2>BUILDING INFORMATION MODELING</h2></div>
+                        <p>Oftentimes physical and functional essence of any construction project needs to be represented digitally, in a 3D model format. In...</p>
+                    </div>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-edit" style="font-size: 78px;"></i>
+                    <div class="txt">
+                        <div><h2>BUILDING INFORMATION MODELING</h2></div>
+                        <p>Oftentimes physical and functional essence of any construction project needs to be represented digitally, in a 3D model format. In...</p>
+                    </div>
+                </div>
+                <div class="icon">
+                    <i class="far fa-building" style="font-size: 78px;"></i>
+                    <div class="txt">
+                        <div><h2>BUILDING INFORMATION MODELING</h2></div>
+                        <p>Oftentimes physical and functional essence of any construction project needs to be represented digitally, in a 3D model format. In...</p>
+                    </div>
+                </div>
+                <div class="icon">
+                    <i class="far fa-address-book ;" style="font-size: 78px;"></i>
+                    <div class="txt">
+                        <div><h2>BUILDING INFORMATION MODELING</h2></div>
+                        <p>Oftentimes physical and functional essence of any construction project needs to be represented digitally, in a 3D model format. In...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="background-color: #f6f6f7;">
+        <div class="OUR-HISTORY" style=" padding: 80px 0 ; position: relative;">
+            <div class="OUR-HISTORY-txt">
+                <div>
+                    <h2>OUR HISTORY</h2>
+                </div>
+                <div>
+                    <h3>OUR CONSTRUCTION COMPANY HAS BEEN FOUNDED 10 YEARS AGO, AT THE VERY PEAK OF THE BUILDING FRENZY IN THE US…</h3>
+                </div>
+                <div>
+                    <p>Since then we’ve built hundreds of commercial, government and private buildings and facilities. It may not sound like a lot, but if you estimate the manpower, working hours, materials, planning and correlating that were all involved in completing each separate project, then our productivity is immense!</p>
+                </div>
+                <div>
+                    <a href="#">read more</a>
+                </div>
+            </div>
+            <div>
+                <img src="/MANUFAX圖片/asset 4.png" alt="">
+            </div>
+        </div>
+        <div class="more-pic">
+            <div class="more-pic_pic"><h3>Commercial</h3><img src="/MANUFAX圖片/asset 8.png" alt=""></div>
+            <div class="more-pic_pic"><h3>Cultural / Lifestyle</h3><img src="/MANUFAX圖片/asset 9.png" alt=""></div>
+            <div class="more-pic_pic"><h3>Data / Technology</h3><img src="/MANUFAX圖片/asset 10.png" alt=""></div>
+            <div class="more-pic_pic"><h3>Educational</h3><img src="/MANUFAX圖片/asset 11.png" alt=""></div>
+            <div class="more-pic_pic"><h3>Government / Military</h3><img src="/MANUFAX圖片/asset 12.png" alt=""></div>
+            <div class="more-pic_pic"><h3>Healthcare</h3><img src="/MANUFAX圖片/asset 13.png" alt=""></div>
+            <div class="more-pic_pic"><h3>Manufacturing / Industrial</h3><img src="/MANUFAX圖片/asset 14.png" alt=""></div>
+            <div class="more-pic_pic"><h3>Warehouse / Logistics</h3><img src="/MANUFAX圖片/asset 15.png" alt=""></div>
+       
+        </div>
+    </div>
+    <div class="RECENT-NEWS-body">
+        <div class="RECENT-NEWS">
+            <h1>RECENT-NEWS</h1>
+        </div>
+        <div style="display: flex;justify-content: center; margin: 0 10%;">
+            <div class="RECENT-NEWS-pic-txt">
+                <img src="https://ld-wp73.template-help.com/wordpress/prod_21256/v1/wp-content/uploads/2018/12/blog-27.jpg" alt="" style="margin-left: 30px;">
+                <a href="#" style="margin-left: 30px;">FUTURE PROOFING HOSPITALS</a>
+                <div class="littli-a" style="margin-left: 30px;">
+                    Posted by 
+                    <a href="#">admin</a>
+                    <a href="#" style="margin-left: 10px;">December 7, 2018</a>
+                </div>
+                <div class="littli-a-txt" style="margin-left: 30px;">By improving the physical layout of hospitals and medical facilities, we can enhance and increase safety mechanisms, improve care, and…</div>
+            </div>
+            <div class="RECENT-NEWS-pic-txt">
+                <img src="https://ld-wp73.template-help.com/wordpress/prod_21256/v1/wp-content/uploads/2018/12/blog-26.jpg" alt="" style="margin-left: 30px;">
+                <a href="#" style="margin-left: 30px;">BIKE PARTS WAREHOUSE, DE</a>
+                <div class="littli-a" style="margin-left: 30px;">
+                    Posted by 
+                    <a href="#">admin</a>
+                    <a href="#" style="margin-left: 10px;">December 7, 2018</a>
+                    <div class="littli-a-txt" style="margin-left: 0px;">Delaware proved to be a very friendly place to work at… While invited there for completing a mid-sized warehouse for…</div>
+                </div>
+            </div>
+            <div class="RECENT-NEWS-pic-txt">
+                <img src="https://ld-wp73.template-help.com/wordpress/prod_21256/v1/wp-content/uploads/2018/12/blog-28.jpg" alt="">
+                <a href="#">JOY HOTEL & CASINO</a>
+                <div class="littli-a" style="margin-left: 0px;">
+                    Posted by 
+                    <a href="#">admin</a>
+                    <a href="#" style="margin-left: 10px;">December 7, 2018</a>
+                    <div class="littli-a-txt" style="margin-left: 0px;">This hotel & casino complex is our most recent completed building… The whole structure that took us 6 months to…</div>
+                </div>
+            </div>
+        </div>
+        <div class="SEE-ALL-NEW">
+            <a href="#">SEE ALL NEW</a>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-MANUFAX">
+        <img src="/MANUFAX圖片/asset 0.png" alt="" style="width: 70%;">
+        <p>Construction’s core values have been shaped over more than 10 years of delivering the finestconstruction services to our clients. They stood to the test of time and these principles remain ourbedrock lynchpins. We never tried to cut on either quality, the pace of work or any other constructionaspect. We stay true to our full promise of efficiency!</p>
+        </div>
+        <div class="footer-NAVLGATION">
+            <h2>NAVIGATION</h2>
+            <a href="#" style="color: #2ac5f4;">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Projects</a>
+            <a href="#">Blog</a>
+            <a href="#">Contacts</a>
+        </div>
+        <div class="footer-RECENT">
+            <h2>RECENT COMMENTS</h2>
+            <a href="#">The art and science of color planning for performance requirements</a>
+            <div class="footer-RECENT-littli-a" style="margin-left: 0px;">
+                Posted by 
+                <a href="#">admin</a>
+                <br>
+            </div>
+            <div class="footer-RECENT-littli-a-Future" style="margin-left: 0px;">
+                <a href="#">Future proofing hospitals</a>
+                <div class="footer-RECENT-littli-a" style="margin-left: 0px;">
+                    Posted by 
+                    <a href="#">admin</a>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="footer-CONTACTS" style="padding: 30px;">
+            <h2>CONTACTS</h2>
+            <p>Address: 4578 Marmora Road, Glasgow, D04 89GR</p>
+            <div class="Phones"><p>Phones:<a class="phonenumber" href="#" style="color:#2ac5f4 ;">(800) 123-0045;<p><a href="#" style="color: #2ac5f4;">(800) 123-0046</a></p>
+            </div>
+            <div class="Email"><p>Email:<a class="phonenumber" href="#" style="color:#2ac5f4 ;">info@demolink.org</a>
+            </div>
+            
+        </div>
+    </div>
+</html>
