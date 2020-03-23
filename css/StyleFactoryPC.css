@@ -1,0 +1,72 @@
+@media screen and (min-width: 992px){
+    .header{
+        padding-top: 55px;
+    }
+    .STYLE-FACTORY_button{
+        display: none;
+    }
+    .STYLE-FACTORY_a a{
+        padding: 0;
+    }
+    .STYLE-FACTORY_a{
+        display: block;
+        display: flex;
+        justify-content: center;
+    }
+    .STYLE-FACTORY_a li{
+        /* width: 17%; */
+        width: 6%;
+    }
+    .STYLE-FACTORY_Select{
+        display: none;
+    }
+    .bord{
+        display: block;
+      }
+      .bord-txt{
+        display: flex;
+        justify-content: center;
+      }
+      .bord-txt a{
+          color: red;
+          margin-left: 40px;
+
+      }
+      .bord-txt .Home::after{
+        content: '/';
+        margin-left: 25%;
+        /* margin-left: 25%; */
+    }
+    .bord-txt .Products::after{
+        content: '/';
+        margin-left: 20%;
+        /* margin-left: 12%; */
+    }
+    .bord-txt .Blog::after{
+        content: '/';
+        margin-left: 25%;
+        /* margin-left: 28%; */
+    }
+    .bord-txt .Sale::after{
+        content: '/';
+        margin-left: 25%;
+        /* margin-left: 30%; */
+    }
+    .bord-txt .Contact::before{
+        content: '/';
+        margin-left: 30px;
+        /* margin-left: 15%; */
+    }
+    /*Products*/
+    .Products .body{
+        flex-direction: column;
+    }
+    .Products .body .icon .eye{
+        display: inline;
+    }
+    /*FEATURED*/
+    .FEATURED .body .txt-icon .icon .eye{
+        display: inline;
+      }
+      
+}

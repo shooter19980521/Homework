@@ -1,0 +1,25 @@
+@media screen and (min-width: 992px){
+    /*header*/
+    .header{
+        margin:20px 4%;
+    }
+    /*Style-Fagtory-pic*/
+    .Style-Fagtory-pic{
+        margin: 0 1.8%;
+    }
+    .Style-Fagtory-pic .pic{
+        width: 16%;
+        margin: 0 50%;
+    }
+    .Style-Fagtory-pic .icon{
+        /* justify-content: start; */
+    }
+    .Style-Fagtory-pic .icon a{
+        margin: 0 4%;
+    }
+    /*down*/
+    .Down .Down_button{
+        width: 100%;
+    }
+
+}

@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+a{
+    color: #000;
+}
+/*checkbox*/
+#menu-control{
+    position: absolute;
+    left: -100%;
+}
+/*漢堡控制*/
+.bar-body,
+.Times{
+    display: none;
+    position: absolute;
+}
+.checkbox:checked~.bar-body{
+    display: block;
+    background-color: #fff;
+}
+.checkbox:checked~.header .Times{
+    display: block;
+}
+.checkbox:checked~.header .bar{
+    display: none;
+}
+
+
+
+/*bar-body*/
+.bar-body{
+    width: 208px; 
+    height: 160px; 
+    border: 1px solid black;
+    position: absolute;
+    margin:40px 5%;
+    z-index: 1;
+}
+/*header*/
+.header{
+    margin:20px 1%;
+}
+.header .bar{
+    text-align: start;
+}
+.header .bar button{
+    width: 30px;
+    border: none;
+    background-color: #fff;
+}
+.car-search{
+    text-align: end;
+}
+.car-search button{
+    width: 30px;
+    border: none;
+    background-color: #fff;
+}
+.car-search input{
+    width: 146px;
+    border: none;
+}
+/*Style-Fagtory-pic*/
+.Style-Fagtory-pic{
+    margin: 0 20%;
+}
+.Style-Fagtory-pic .icon{
+    display: flex;
+    justify-content: center;
+}
+.Style-Fagtory-pic .icon a{
+    margin: 0 6%;
+}

@@ -1,0 +1,42 @@
+      *{
+          margin: 0;
+          padding: 0;
+      }
+      #menu-control{
+        position: absolute;
+        left: -100px;
+    }
+       .form-control{
+          width: 50%;
+      } 
+      .Currency{
+        font-weight: bold;
+        font-size: 20px;
+        display: inline;
+      }
+      .bars-content{
+        padding: 20px 15px;
+        border: 1px solid #e9e9e9;
+        position: absolute;
+        z-index: 1;
+        top: 30px;
+        display: none;
+      }
+      .Currency-down a{
+        font-size: 20px;
+        text-transform: capitalize;
+        color: #000;
+        margin: 0 5px 0 0;
+      }
+      .navbar-light .navbar-nav .nav-link{
+        color: #000;
+      }
+      .Currencies_select{
+          display: inline-block;
+          width: 80px;
+      }
+      .hearder-pic{
+          justify-content: center;
+          align-items: center;
+          width: 240px;
+      }
