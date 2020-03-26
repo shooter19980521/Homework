@@ -1,19 +1,25 @@
-@media screen and (min-width: 992px){
+@media screen and (min-width: 1200px){
+    .left-h1{
+        font-size: 40px;
+    }
+    .right-h1{
+        font-size: 40px;
+    }
+    
     /*header*/
     .header{
-        margin:20px 4%;
+        margin:20px 4%; 
     }
     /*Style-Fagtory-pic*/
     .Style-Fagtory-pic{
         margin: 0 1.8%;
     }
     .Style-Fagtory-pic .pic{
-        width: 16%;
-        margin: 0 50%;
+        width: 30%;
+        /* margin: 0 40%; */
+        margin-left: 40%;
     }
-    .Style-Fagtory-pic .icon{
-        /* justify-content: start; */
-    }
+
     .Style-Fagtory-pic .icon a{
         margin: 0 4%;
     }
@@ -21,5 +27,132 @@
     .Down .Down_button{
         width: 100%;
     }
+    .Down button{
+        display: none;
+    }
+    .Down .dropdown-menu{
+        display: flex;
+        justify-content: center;
+    }
+    .Down .dropdown-menu{
+        margin: 0;
+        position: relative;
+    }
+    .Down .body{
+        display: flex;
+        justify-content: space-around;
+    }
+     .Down .body li{
+        text-align: left;
+        border-bottom: none;
+        text-align: right;
+    } 
+    .Down .body li a{
+        margin: 0;
+        /* margin-right:10px; */
+        margin-left: 30px;
+    }
 
+    .Down .dropdown-menu li + li::before{
+        content: '/';
+        /* box-sizing: border-box; */
+        
+        
+    }
+    /*Best-Deals*/
+    .Best-Deals h3{
+        font-size: 30px;
+        position: absolute;
+        text-align: left;
+        z-index: 1;
+        font-weight: 300;
+        color: #fff;
+        margin: 200px 195px; 
+        border-top: 1px solid #fff; 
+        text-align: right;
+
+    }
+    .Best-Deals .a{
+        position: absolute;
+        padding: 20px 0;
+        background-color: #ffffff;
+        z-index: 1;
+        bottom: 0;
+        left: 43%;
+        right: 43%;
+        font: bold 22px Work Sans;
+        font-family: 'Lato', sans-serif;
+    }
+    .Best-Deals img{
+        height: 872px;
+    }
+
+    /*HAIR-EXTENSIONS*/
+    .HAIR-EXTENSIONS .txt,
+    .HAIR-EXTENSIONS h1,
+    .HAIR-EXTENSIONS h2,
+    .HAIR-EXTENSIONS h3{
+        /* right: 0; */
+        text-align: center;
+        letter-spacing: 0.05em;
+    }
+    .HAIR-EXTENSIONS h1{
+        font-size: 120px;
+    }
+    .HAIR-EXTENSIONS h2{
+        font-size: 115px;
+    }
+    .HAIR-EXTENSIONS h3{
+        font-size: 40px;
+    }
+    .HAIR-EXTENSIONS img{
+        height: 498px;
+        width: 100%;
+    }
+    /*BROWSE-OUR-CATEGORIES*/
+    .BROWSE-OUR-CATEGORIES-pic-txt .col-xl-3{
+        padding: 0 1px;
+    }
+    .BROWSE-OUR-CATEGORIES-pic-txt .col-xl-3{
+        height: 450px;
+    }
+
+    /*PRODUCTS-ON-SALE-pic-txt*/
+    .FEATURED-PRODUCTS .body h3,
+    .PRODUCTS-ON-SALE .body h3{
+        display: none;
+    }
+    .FEATURED-PRODUCTS img,
+    .PRODUCTS-ON-SALE img{
+        padding: 0 50px;
+    }
+    .eye{
+        display: inline;
+    }
+
+    /*SEE-WHAT-NEW-ON-OUR-BLOG*/
+    .SEE-WHAT-NEW-ON-OUR-BLOG .col-xl-4{
+        /* padding: 0 15px; */
+    }
+    .SEE-WHAT-NEW-ON-OUR-BLOG .body{
+        display: flex;
+    }
+    .SEE-WHAT-NEW-ON-OUR-BLOG .body .col-xl-4:first-child{
+        padding-right:30px;
+    }
+    .SEE-WHAT-NEW-ON-OUR-BLOG .body .col-xl-4:nth-child(2){
+        padding:0 15px;
+    }
+    .SEE-WHAT-NEW-ON-OUR-BLOG .body .col-xl-4:nth-child(3){
+        padding-left:30px;
+    }
+
+    /*FOLLOW-US-ON-INSTAGRAM*/
+    .FOLLOW-US-ON-INSTAGRAM{
+        padding: 90px 0 0 0;
+    }
+    .FOLLOW-US-ON-INSTAGRAM .col-12:first-child{
+        margin-bottom: 100px;
+    }
+    
 }
