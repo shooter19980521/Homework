@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>國家</td>
+            <td>確診</td>
+            <td>死亡</td>
+            <td>治癒</td>
+        
+            </tr>
+    
+        <tr>
+        <td>台灣</td>
+        <td id="Taiwan1"></td>
+        <td id="Taiwan2"></td>
+        <td id="Taiwan3"></td>
+    
+        </tr>
+        <tr>
+        <td>大陸</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    
+        </tr>
+        <tr>
+        <td>美國</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    
+        </tr>
+    </table>
+
+
+    <script>
+        let Taiwan1 = document.getElementById("Taiwan1");
+
+        let Taiwan = ['298','3','39'];
+        let China = ['82149','3308','75898'];
+        let USA = ['142869','2436','2660'];
+
+        let Global=[
+            Taiwan,China,USA
+        ];
+
+        Taiwan1.innerHTML=Taiwan[0];
+    </script>
+    
+</body>
+</html>
