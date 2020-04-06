@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .spec button,
+        .color button{
+            width: 200px;
+            height: 200px;
+        }
+        .radio_color{
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            margin: 0 35%;
+        }
+            img{
+                width: 300px;
+                height: 300px;
+            }
+        label{
+            font-size: 60px;
+        }
+
+    </style>
+</head>
+<body>
+<!-- <button onclick="refresh()">清除</button> -->
+<button onclick="iphone()">iphone</button>
+<button onclick="ipad()">ipad</button>
+<button onclick="mac()">MacPro</button>
+<div class="container">
+    <div class="row">
+      <div class="col-12 col-xl-4">
+          <div class="pic" id="pic">
+            
+          </div>
+      </div>
+      <div class="col-12 col-xl-8">
+        <div class="w-100">
+            <h2>顏色</h2>
+        </div>
+        <div class="color w-100" id="color">
+            
+        </div>
+        <div class="w-100">
+            <h2>規格</h2>
+        </div>
+        <div class="spec w-100" id="spec">
+        </div>
+        <div class="w-100">
+            <h2>價格</h2>
+        </div>
+        <label for="" id="price"></label>
+      </div>  
+    </div>
+</div>
+
+<script src="/javascript/Apple1.js">
+function refresh_p01(){
+    document.location.reload();
+}
+</script>
+</body>
+
+</html>
