@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+        .label{
+            border: 1px solid black;
+            margin-bottom: 50px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .produce{
+            margin-top: 30px;
+        }
+        .number{
+            font-size: 15px;
+        }
+        .col-12.col-xl-4{
+            padding: 0;
+        }
+        .number input{
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+  </head>
+  <body>
+  
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-xl-12">
+                <div class="label">
+                    <label for="" id="produce">0-100</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row" style="justify-content: center;">
+            <div class="col-12 col-xl-3">
+                <div class="produce">
+                    <button onclick="produce()">產生數字</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" style="justify-content: center;">
+            <div class="col-12 col-xl-3">
+                <div class="txt">
+                    <input type="text" id="input_txt" value="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" style="justify-content: center;">
+            <div class="col-12 col-xl-1">
+                <div class="number">
+                    <div class="row">
+                        <div class="col-12 col-xl-4">
+                            <input type="button" value="1" onclick="digital('1')" Name="digital">
+                        </div>
+                        <div class="col-12 col-xl-4">
+                            <input type="button" value="2" onclick="digital('2')" Name="digital">
+                        </div>
+                        <div class="col-12 col-xl-4">
+                            <input type="button" value="3" onclick="digital('3')" id="digital">
+                        </div>
+                        <div class="col-12 col-xl-4">
+                            <input type="button" value="4" onclick="digital('4')" id="digital">
+                        </div>
+                        <div class="col-12 col-xl-4">
+                            <input type="button" value="5" onclick="digital('5')" id="digital">
+                        </div>
+                        <div class="col-12 col-xl-4">
+                            <input type="button" value="6" onclick="digital('6')" id="digital">
+                        </div>
+                        <div class="col-12 col-xl-4">
+                            <input type="button" value="7" onclick="digital('7')" id="digital">
+                        </div>
+                        <div class="col-12 col-xl-4">
+                            <input type="button" value="8" onclick="digital('8')" id="digital">
+                        </div>
+                        <div class="col-12 col-xl-4">
+                            <input type="button" value="9" onclick="digital('9')" id="digital">
+                        </div>
+                        <div class="col-12 col-xl-4">
+                            <input type="button" value="X" onclick="refresh()" id="digital">
+                        </div>
+                        <div class="col-12 col-xl-4">
+                            <input type="button" value="0" onclick="digital(0)" id="digital">
+                        </div>
+                        <div class="col-12 col-xl-4">
+                            <input type="button" value="V" onclick="check()" id="digital">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var number;
+        var min = 0;
+        var max = 100;
+
+        function produce(){
+            number = Math.floor(Math.random()*101)
+        }
+
+        function digital(str){
+            document.getElementById("input_txt").value +=`${str}`;
+        }
+
+        function refresh(){
+            document.getElementById("input_txt").value ="";
+        }
+
+
+        function check(){
+            let txt = document.getElementById("input_txt").value;
+            if(txt>max||txt<min){
+                alert('她媽的智障?');
+            }
+            else{
+                if(txt>number) {
+                    max = txt;
+                    document.getElementById("produce").innerHTML=`${min}~${max}`;
+                }
+                else if(txt<number){
+                    min = txt;
+                    document.getElementById("produce").innerHTML=`${min}~${max}`;
+                }
+                else{
+                    alert("答對囉");
+                    window.location.reload();
+                }
+            }
+            }
+
+    </script>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

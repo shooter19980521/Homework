@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+        .number input{
+            width: 24px;
+            height: 30px;
+        }
+        .col-12.col-xl-3{
+            padding: 0;
+        }
+    </style>
+  </head>
+  <body>
+    
+    <div class="container">
+        <div class="row" style="justify-content: center;">
+            <div class="col-12 col-xl-3">
+                <div class="txt">
+                    <input type="text" id="input_txt" value="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" style="justify-content: center;">
+            <div class="col-12 col-xl-1">
+                <div class="number">
+                    <div class="row">
+                        <div class="col-12 col-xl-3">
+                            <input type="button" value="1" onclick="digital('1')" Name="digital">
+                        </div>
+                        <div class="col-12 col-xl-3">
+                            <input type="button" value="2" onclick="digital('2')" Name="digital">
+                        </div>
+                        <div class="col-12 col-xl-3">
+                            <input type="button" value="3" onclick="digital('3')" id="digital">
+                        </div>
+                        <div class="col-12 col-xl-3">
+                            <input type="button" value="+" onclick="add()" id="digital">
+                        </div>
+                        <div class="col-12 col-xl-3">
+                            <input type="button" value="4" onclick="digital('4')" id="digital">
+                        </div>
+                        <div class="col-12 col-xl-3">
+                            <input type="button" value="5" onclick="digital('5')" id="digital">
+                        </div>
+                        <div class="col-12 col-xl-3">
+                            <input type="button" value="6" onclick="digital('6')" id="digital">
+                        </div>
+                        <div class="col-12 col-xl-3">
+                            <input type="button" value="-" onclick="sub()" id="digital">
+                        </div>
+                        <div class="col-12 col-xl-3">
+                            <input type="button" value="7" onclick="digital('7')" id="digital">
+                        </div>
+                        <div class="col-12 col-xl-3">
+                            <input type="button" value="8" onclick="digital('8')" id="digital">
+                        </div>
+                        <div class="col-12 col-xl-3">
+                            <input type="button" value="9" onclick="digital('9')" id="digital">
+                        </div>
+                        <div class="col-12 col-xl-3">
+                            <input type="button" value="x" onclick="mul()" id="digital">
+                        </div>
+                        <div class="col-12 col-xl-3">
+                            <input type="button" value="0" onclick="digital(0)" id="digital">
+                        </div>
+                        <div class="col-12 col-xl-3">
+                            <input type="button" value="." onclick="digital('.')" id="digital">
+                        </div>
+                        <div class="col-12 col-xl-3">
+                            <input type="button" value="=" onclick="equal()" id="digital">
+                        </div>
+                        <div class="col-12 col-xl-3">
+                            <input type="button" value="/" onclick="div()" id="digital">
+                        </div>
+                        <div class="col-12 col-xl-3">
+                            <input type="button" value="c" onclick="refresh()" id="digital">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var number=0 ;
+        var Temporary=0 ;
+        var div_btn,mul_btn,btn_sub,btn_add=false;
+        function digital(str){
+            document.getElementById("input_txt").value +=`${str}`;
+        }
+        function add(){
+            if(Temporary==0){
+                Temporary = parseFloat(document.getElementById("input_txt").value);
+                document.getElementById("input_txt").value=' ';
+                btn_add=true;
+                btn_sub=false;
+                div_btn=false;
+                mul_btn=false;
+                refresh_btn=true;
+            }
+            else if(document.getElementById("input_txt").value==' '){
+                Temporary=number;
+                btn_add=true;
+                btn_sub=false;
+                div_btn=false;
+                mul_btn=false;
+                refresh_btn=true;
+            }
+            else if(document.getElementById("input_txt").value!=' '&& Temporary!='0'){
+                // document.getElementById("input_txt").value=' ';
+                Temporary = number + parseFloat(document.getElementById("input_txt").value);
+                number = Temporary;
+                document.getElementById("input_txt").value=`${number}`;
+                btn_add=true;
+                btn_sub=false;
+                div_btn=false;
+                mul_btn=false;
+                refresh_btn=true;
+
+            }
+            else{
+                Temporary = parseFloat(document.getElementById("input_txt").value);
+                document.getElementById("input_txt").value=' ';
+                btn_add=true;
+                btn_sub=false;
+                div_btn=false;
+                mul_btn=false;
+                refresh_btn=true;
+
+            }
+            
+        }
+        function sub(){
+            if(Temporary==0){
+                Temporary = parseFloat(document.getElementById("input_txt").value);
+                document.getElementById("input_txt").value=' ';
+                btn_add=false;
+                btn_sub=true;
+                div_btn=false;
+                mul_btn=false;
+                refresh_btn=true;
+            }
+            else if(document.getElementById("input_txt").value==' '){
+                Temporary=number;
+                btn_sub=true;
+                btn_add=false;
+                div_btn=false;
+                mul_btn=false;
+                refresh_btn=true;
+
+            }
+            else if(document.getElementById("input_txt").value!=' '&& Temporary!='0'){
+                Temporary =number- parseFloat(document.getElementById("input_txt").value);
+                number = Temporary;
+                document.getElementById("input_txt").value=`${number}`;
+                btn_sub=true;
+                btn_add=false;
+                div_btn=false;
+                mul_btn=false;
+                refresh_btn=true;
+
+            }
+            else{
+                Temporary = parseFloat(document.getElementById("input_txt").value);
+                document.getElementById("input_txt").value=' ';
+                btn_sub=true;
+                btn_add=false;
+                div_btn=false;
+                mul_btn=false;
+                refresh_btn=true;
+                
+            }
+        }
+
+        function mul(){
+            if(Temporary==0){
+                Temporary = parseFloat(document.getElementById("input_txt").value);
+                document.getElementById("input_txt").value=' ';
+                btn_add=false;
+                btn_sub=false;
+                div_btn=false;
+                mul_btn=true;
+                refresh_btn=true;
+            }
+            else if(document.getElementById("input_txt").value==' '){
+                Temporary=number;
+                btn_sub=false;
+                btn_add=false;
+                div_btn=false;
+                mul_btn=true;
+                refresh_btn=true;
+
+            }
+            else if(document.getElementById("input_txt").value!=' '&& Temporary!='0'){
+                Temporary =number * parseFloat(document.getElementById("input_txt").value);
+                number = Temporary;
+                document.getElementById("input_txt").value=`${number}`;
+                btn_sub=false;
+                btn_add=false;
+                div_btn=false;
+                mul_btn=true;
+                refresh_btn=true;
+
+            }
+            else{
+                Temporary = parseFloat(document.getElementById("input_txt").value);
+                document.getElementById("input_txt").value=' ';
+                btn_sub=false;
+                btn_add=false;
+                div_btn=false;
+                mul_btn=true;
+                refresh_btn=true;
+                
+            }
+        }
+
+        function div(){
+            if(Temporary==0){
+                Temporary = parseFloat(document.getElementById("input_txt").value);
+                document.getElementById("input_txt").value=' ';
+                btn_add=false;
+                btn_sub=false;
+                div_btn=true;
+                mul_btn=false;
+                refresh_btn=true;
+            }
+            else if(document.getElementById("input_txt").value==' '){
+                Temporary=number;
+                btn_sub=false;
+                btn_add=false;
+                mul_btn=false;
+                div_btn=true;
+                refresh_btn=true;
+
+            }
+            else if(document.getElementById("input_txt").value!=' '&& Temporary!='0'){
+                Temporary =number / parseFloat(document.getElementById("input_txt").value);
+                number = Temporary;
+                document.getElementById("input_txt").value=`${number}`;
+                btn_sub=false;
+                btn_add=false;
+                mul_btn=false;
+                div_btn=true;
+                refresh_btn=true;
+
+            }
+            else{
+                Temporary = parseFloat(document.getElementById("input_txt").value);
+                document.getElementById("input_txt").value=' ';
+                btn_sub=false;
+                btn_add=false;
+                mul_btn=false;
+                div_btn=true;
+                refresh_btn=true;
+                
+            }
+        }
+
+        function equal(){
+            if(Temporary==' '){
+                if(btn_add==true||mul_btn==true||div_btn==true){
+                    Temporary = parseFloat(document.getElementById("input_txt").value);
+                    number = Temporary;
+                }
+                else{
+                    Temporary = -parseFloat(document.getElementById("input_txt").value);
+                    number = Temporary;
+                }
+                    
+                }
+            else if(btn_add==true){
+                number = Temporary + parseFloat(document.getElementById("input_txt").value);
+                btn_add = false;
+                refresh_btn=true;
+
+            }
+            else if(btn_sub==true){
+                number = Temporary - parseFloat(document.getElementById("input_txt").value);
+                btn_sub = false;
+                refresh_btn=true;
+
+            }
+            else if(mul_btn==true){
+                number = Temporary * parseFloat(document.getElementById("input_txt").value);
+                mul_btn = false;
+                refresh_btn=true;
+
+            }
+            else if(div_btn==true){
+                number = Temporary / parseFloat(document.getElementById("input_txt").value);
+                div_btn = false;
+                refresh_btn=true;
+
+            }
+            document.getElementById("input_txt").value=`${number}`;
+        }
+        function refresh(){
+            if(refresh_btn!=false){
+                document.getElementById("input_txt").value=' ';
+                refresh_btn=false;
+            }
+            else{
+                window.location.reload();
+            }
+        }
+    </script>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
