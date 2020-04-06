@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .body{
+            width: 600px;
+        }
+        .row{
+            margin: 0;
+            justify-content: center;
+        }
+        .txt_input{
+            margin-top: 100px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .txt_input input{
+            width: 100%; 
+            height: 30px;
+        }
+        .col-2,
+        .col-4{
+            padding: 0;
+        }
+        .Button{
+            width: 100%;
+        }
+        .Button .row{
+            width: 100%;
+        }
+        .Button input{
+            width: 100%;
+        }
+    </style>
+  </head>
+  <body style="display: flex; justify-content: center;">
+    <div class="body">
+        <div class="container">
+            <div class="row">
+                <div class="txt_input">
+                    <input type="text" id="input_txt">  
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                    <div class="Button">
+                        <div class="row">
+                            <div class="col-2">
+                                <input type="button"  onclick="number(1)" value="1">
+                            </div>
+                            <div class="col-2">
+                                <input type="button" onclick="number(2)" value="2">
+                            </div>
+                            <div class="col-2">
+                                <input type="button" onclick="number(3)" value="3">
+                            </div>
+                            <div class="col-2">
+                                <input type="button" onclick="add()" value="+">
+                            </div>
+                            <div class="col-2">
+                                <input type="button" onclick="refresh()" value="C">
+                            </div>
+                            <div class="col-2">
+                                <input type="button" onclick="except_one()" value="1/x">
+                            </div>
+                            <div class="col-2">
+                                <input type="button" onclick="number(4)" value="4">
+                            </div>
+                            <div class="col-2">
+                                <input type="button" onclick="number(5)" value="5">
+                            </div>
+                            <div class="col-2">
+                                <input type="button" onclick="number(6)" value="6">
+                            </div>
+                            <div class="col-2">
+                                <input type="button" onclick="Less()" value="-">
+                            </div>
+                            <div class="col-2">
+                                <input type="button" onclick="Class()" value="x!">
+                            </div>
+                            <div class="col-2">
+                                <input type="button" onclick="Square()" value="✓">
+                            </div>
+                            <div class="col-2">
+                                <input type="button" onclick="number(7)" value="7">
+                            </div>
+                            <div class="col-2">
+                                <input type="button" onclick="number(8)" value="8">
+                            </div>
+                            <div class="col-2">
+                                <input type="button" onclick="number(9)" value="9">
+                            </div>
+                            <div class="col-2">
+                                <input type="button" onclick="Multiply()" value="*">
+                            </div>
+                            <div class="col-2">
+                                <input type="button" onclick="sin()" value="sin">
+                            </div>
+                            <div class="col-2">
+                                <input type="button" onclick="cos()" value="cos">
+                            </div>
+                            <div class="col-2">
+                                <input type="button" onclick="number(0)" value="0">
+                            </div>
+                            <div class="col-2">
+                                <input type="button" onclick="Decimal_point('.')" value=".">
+                            </div>
+                            <div class="col-2">
+                                <input type="button" onclick="Pi()" value="π">
+                            </div>
+                            <div class="col-2">
+                                <input type="button" onclick="except()" value="/">
+                            </div>
+                            <div class="col-2">
+                                <input type="button" onclick="log()" value="ln">
+                            </div>
+                            <div class="col-2">
+                                <input type="button" onclick="tan()" value="tan">
+                            </div>
+                            <div class="col-2">
+                                <input type="button" onclick="Power()" value="x^y">
+                            </div>
+                            <div class="col-2">
+                                <input type="button" onclick="Exponential_function()" value="e^x">
+                            </div>
+                            <div class="col-4">
+                                <input type="button" onclick="reback()" value="←">
+                            </div>
+                            <div class="col-4">
+                                <input type="button" onclick="equal()" value="=">
+                            </div>
+                        </div>
+                    </div>
+    
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var first = 0;
+        var second = 0; 
+        var point = false;
+        var operating_add,operating_Less,operating_Multiply,operating_except,operating_except_one,operating_Class,operating_Square,operating_sin,operating_cos,operating_tan,operating_log,operating_Power,operating_Exponential_function;
+
+        function number(str){
+            if(second==null){
+                document.getElementById("input_txt").value =``;
+                document.getElementById("input_txt").value =`${str}`;
+                second = 0;
+            }
+            else{
+                document.getElementById("input_txt").value +=`${str}`;
+            }
+        }
+        function Decimal_point(str){
+            
+            if(point!=true){
+                document.getElementById("input_txt").value +=`${str}`;
+                point = true;
+            }
+        }
+
+        //C
+        function refresh(){
+            first = 0;
+            second = 0;
+            point = false;
+            document.getElementById("input_txt").value =` `;
+        }
+        function reback(){
+            let txt = document.getElementById("input_txt").value;
+            txt =txt.substring(0, txt.length-1);
+            document.getElementById("input_txt").value = `${txt}`;
+            // first = first.substring(first.length() - 1);
+        }
+
+        //+
+        function add(){
+            if(operating_add!=true)
+            {
+                operating();
+                operating_add = true;
+            }
+            else{
+                first = first+parseFloat(document.getElementById("input_txt").value);
+                    second = null;
+                    document.getElementById("input_txt").value =`${first}`
+                    operating_add == false;
+            }
+            
+            
+        }
+        //-
+        function Less(){
+            if(operating_Less!=true){
+                operating();
+                operating_Less = true;
+            }
+            else{
+                first = first-parseFloat(document.getElementById("input_txt").value);
+                second = null;
+                document.getElementById("input_txt").value =`${first}`
+                operating_add == false;
+            }
+            
+        }
+        //*
+        function Multiply(){
+            if(operating_Multiply!=true){
+                operating();
+                operating_Multiply = true;
+            }
+            else{
+                first = first*parseFloat(document.getElementById("input_txt").value);
+                second = null;
+                document.getElementById("input_txt").value =`${first}`
+                operating_add == false;
+            }
+            
+        }
+        // /
+        function except(){
+            if(operating_except!=true){
+                operating();
+                operating_except = true;
+            }
+            else{
+                first = first/parseFloat(document.getElementById("input_txt").value);
+                second = null;
+                document.getElementById("input_txt").value =`${first}`
+                operating_add == false;
+            }
+            
+        }
+        // 1/x
+        function except_one(){
+            operating();
+            first = 1/first;
+            second = null;
+            document.getElementById("input_txt").value =`${first}`
+            operating_except_one == false;
+            // operating_except_one = true;
+        }
+        //x!
+        function Class(){
+            operating();
+            second = null;
+            var Class = 1;
+                for(var i = 1 ;i <=first ;i++){
+                    Class = Class * i;
+                }
+                document.getElementById("input_txt").value =`${Class}`
+                operating_Class == false;
+            // operating_Class = true; 
+        }
+        //開根號
+        function Square(){
+            operating();
+            second = null;
+            let Square = Math.sqrt(first);
+            document.getElementById("input_txt").value =`${Square}`
+            operating_except_one == false;
+
+        }
+        // sin
+        function sin(){
+            operating();
+            second = null;
+            let sin = Math.sin(first/180 * Math.PI);
+            sin = parseFloat(sin.toFixed(10))
+            document.getElementById("input_txt").value =`${sin}`
+            operating_sin == false;
+        }
+        // cos
+        function cos(){
+            operating();
+            second = null;
+            let cos = Math.cos(first/180 * Math.PI);
+                cos = parseFloat(cos.toFixed(10))
+                document.getElementById("input_txt").value =`${cos}`
+                operating_cos == false;
+        }
+        //tan
+        function tan(){
+            operating();
+            second = null;
+            let tan = Math.tan(first/180 * Math.PI);
+                tan = parseFloat(tan.toFixed(10))
+                document.getElementById("input_txt").value =`${tan}`
+                operating_tan == false;
+        }
+        //log
+        function log(){
+            operating();
+            second = null;
+            let log = Math.log(first);
+                document.getElementById("input_txt").value =`${log}`
+                operating_log == false;
+        }
+        //Power
+        function Power(){
+            operating();
+            second = null;
+            operating_Power = true;
+        }
+        //指數函數
+        function Exponential_function(){
+            operating();
+            second = null;
+            let Exponential_function = Math.exp(first);
+                document.getElementById("input_txt").value =`${Exponential_function}`
+                operating_Exponential_function == false;
+        }
+        
+
+        //=
+        function equal(){
+            second = parseFloat(document.getElementById("input_txt").value);
+            switch(true){
+                case operating_add == true:
+                    first = first+second;
+                    second = null;
+                    document.getElementById("input_txt").value =`${first}`
+                    operating_add == false;
+                    break;
+                case operating_Less == true:
+                    first = first-second;
+                    second = null;
+                    document.getElementById("input_txt").value =`${first}`
+                    operating_Less == false;
+                    break;
+                case operating_Multiply == true:
+                    first = first*second;
+                    second = null;
+                    document.getElementById("input_txt").value =`${first}`
+                    operating_Multiply == false;
+                    break;
+                case operating_except == true:
+                    first = first/second;
+                    second = null;
+                    document.getElementById("input_txt").value =`${first}`
+                    operating_except == false;
+                    break;
+                // case operating_except_one == true:
+                //     document.getElementById("input_txt").value =`${1/first}`
+                //     operating_except_one == false;
+                //     break;
+                // case operating_Class == true:
+                //     var Class = 1;
+                //     for(var i = 1 ;i <=first ;i++){
+                //         Class = Class * i;
+                //     }
+                //     document.getElementById("input_txt").value =`${Class}`
+                //     operating_Class == false;
+                //     break;
+                // case operating_Square == true:
+                //     let Square = Math.sqrt(first);
+                //     document.getElementById("input_txt").value =`${Square}`
+                //     operating_except_one == false;
+                //     break;
+                // case operating_sin == true:
+                //     let sin = Math.sin(first/180 * Math.PI);
+                //     sin = parseFloat(sin.toFixed(10))
+                //     document.getElementById("input_txt").value =`${sin}`
+                //     operating_sin == false;
+                //     break;
+                // case operating_cos == true:
+                //     let cos = Math.cos(first/180 * Math.PI);
+                //     cos = parseFloat(cos.toFixed(10))
+                //     document.getElementById("input_txt").value =`${cos}`
+                //     operating_cos == false;
+                //     break;
+                // case operating_tan == true:
+                //     let tan = Math.tan(first/180 * Math.PI);
+                //     tan = parseFloat(tan.toFixed(10))
+                //     document.getElementById("input_txt").value =`${tan}`
+                //     operating_tan == false;
+                //     break;
+                // case operating_log == true:
+                //     let log = Math.log(first);
+                //     document.getElementById("input_txt").value =`${log}`
+                //     operating_log == false;
+                //     break;
+                case operating_Power == true:
+                    let Power = Math.pow(first,second);
+                    second = null;
+                    document.getElementById("input_txt").value =`${Power}`
+                    operating_Power == false;
+                    break;
+                // case operating_Exponential_function == true:
+                //     let Exponential_function = Math.exp(first);
+                //     document.getElementById("input_txt").value =`${Exponential_function}`
+                //     operating_Exponential_function == false;
+                //     break;
+                }
+                
+                
+        }
+
+
+        //設定全部操作皆為false
+        function operating_first(){
+            point = false;
+            operating_add = false;
+            operating_Less = false;
+            operating_Multiply = false;
+            operating_except = false;
+            operating_except_one = false;
+            operating_Class = false;
+            operating_Square=false;
+            operating_sin = false;
+            operating_cos=false;
+            operating_tan = false;
+            operating_log = false;
+            operating_Power = false;
+            operating_Exponential_function= false;
+        }
+
+        //個運算的資料儲存
+        function operating(){
+            if(document.getElementById("input_txt").value!=' '){
+                first = parseFloat(document.getElementById("input_txt").value);
+                document.getElementById("input_txt").value =` `;
+                operating_first();
+            }
+            else{
+                operating_first();
+            }
+            
+        }
+
+    </script>
+
+    
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
