@@ -2,7 +2,7 @@ var map;
 
 $.ajax({
     type: "Get",
-    url: "http://127.0.0.1:5501/GooGle_Map/text.json",
+    url: "https://maskmap.azurewebsites.net/api/mask/getmaskstock",
     success: function (response) {
         var ZipCode = [];
 
