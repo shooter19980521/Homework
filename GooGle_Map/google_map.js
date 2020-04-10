@@ -2,7 +2,7 @@ var map;
 
 $.ajax({
     type: "Get",
-    url: "https://maskmap.azurewebsites.net/api/mask/getmaskstock",
+    url: "https://findmasks.herokuapp.com/places",
     success: function (response) {
         var ZipCode = [];
 
@@ -19,7 +19,7 @@ $.ajax({
                         scaledSize: new google.maps.Size(100, 100)
                     },
                     title:`大人口罩剩下:${item.masksLeft}
-                           小孩口罩剩下:${item.childMasksLeft}`,
+                           小孩口罩剩下:${item.childMasksLeft}`
                 });
             }
             else{
