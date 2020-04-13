@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../Modules/MyHelper.js"></script>
+</head>
+
+<body>
+
+    <div class="msg"></div>
+
+    <template id="templateTitle">
+        <tr>
+            <th>產品編號</th>
+            <th>售價</th>
+            <th>儲存容量</th>
+
+        </tr>  
+    </template>
+
+    <template id="templateRow">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+
+        </tr>
+    </template>
+    <script>
+        let body = $g('body');
+        let table = $c('table');
+        table.setAttribute("border", "2");
+
+        let thead = $c('thead');
+        let tbody = $c('tbody');
+
+
+        var msg = $g("msg");
+
+        window.onload = function () {
+            
+            let xhr = new XMLHttpRequest;
+            xhr.onload = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    zipcodeArray = JSON.parse(this.responseText);
+
+                }
+                else {
+                    msg.txtContent = "發生錯誤";
+                }
+
+                let ZipCode = [];
+                zipcodeArray.forEach((item, index) => {
+                    item.AreaList.forEach((item2, index2) => {
+                        ZipCode.push({ City: item.CityName, Districts: [{ District: item2.AreaName }, { ZipCode: item2.ZipCode }] })
+                    })
+                });
+                console.log(ZipCode);
+
+                //迭代陣列, 每個Item是一個Object, 再用.values()取值,回傳陣列
+                ZipCode.forEach((item) => {
+                    addTbody(Object.values(item));
+                });
+
+                table.appendChild(tbody);
+                body.appendChild(table);
+            }
+            xhr.open("GET", "https://raw.githubusercontent.com/gene870607/gene870607-vs_code_javascript_HW/master/JavaScript/TaiwanAddress.json");
+            xhr.send();
+        }
+
+        function addTbody(rowArray) {
+            let templateRow = $g('#templateRow');
+            let cloneContent =
+                templateRow.content.cloneNode(true);
+            let tds = cloneContent.querySelectorAll('td');
+            rowArray.forEach(function(item, index) {
+                if (index == 1) {
+                    // item.forEach(function(item2, index1) {
+                        tds[1].textContent = item[0].District;
+                        tds[2].textContent = item[1].ZipCode;
+                    //     debugger;
+                    // })
+                    // debugger;
+                } else  {
+                    tds[index].textContent = rowArray[index];
+                }
+            })
+            tbody.appendChild(cloneContent);
+        }
+
+    </script>
+
+</body>
+
+</html>
