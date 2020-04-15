@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .col {
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <button id="button">
+        <div class="card col-xl-3" style="width: 18rem;" id="card">
+            <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        </div>
+
+    </button> -->
+    <div class="container">
+        <div class="row" id="row">
+        </div>
+    </div>
+
+    <button onclick=""></button>
+
+    <script>
+        var body = document.getElementsByTagName('body')[0];
+        var row = $("#row")
+        var LOLarray = [];
+        // var card = $("#card");
+        $.ajax({
+            type: "Get",
+            url: "http://127.0.0.1:5501/LOL/LOL.json",
+            success: 
+            function (response) {
+                LOLarray = response;
+                console.log("成功")
+                response.forEach((item, index) => {
+                    $("<div class='col col-12 col-xl-1'></div>").html(`<button onclick="Name('${item.Name}')"><div class="card" style="width: 100%;" id="${item.Name}"><img src="${item.img}" alt="" class="d-block w-100"><div class="card-body"><p class="card-text">${item.Name}</p></div></div></button>`).appendTo(row);
+                });
+
+
+            },
+            error: function (response) {
+                console.log("失敗");
+            }
+        });
+
+        function Name(Name) {
+            LOLarray.forEach((item,index)=>{
+                if(Name==item.Name){
+                    alert(`角色: ${item.AllName}\n生命: ${item.Life}\n生命回復: ${item.LifeRecovery}\n魔力: ${item.magic}\n魔力回復: ${item.MagicRecovery}\n移動速度: ${item.MovingSpeed}\n物理攻擊: ${item.PhysicalAttack}\n攻擊距離: ${item.AttackDistance}\n物理防禦: ${item.PhysicalDefense}\n魔法防禦: ${item.MagicDefense}`)
+                }
+            })
+        }   
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
