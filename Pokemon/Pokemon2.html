@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+
+<body>
+    <h1>寶可夢圖鑑列表</h1>
+    <div id="container"></div>
+
+
+    <button id="addAll" onclick="AddPokemon_All()">按我~~~都來,小朋友才做選擇</button>
+    <button id='addOne' onclick="AddPokemon_One()">1個1個慢慢來</button>
+</body>
+<script>
+    // var AddOne = $("addAll")
+    var container=document.getElementById('container');
+
+
+    window.onload = appendPokemonByTemplate();
+    function appendPokemonByTemplate() {
+        let fileName = '001';
+        let pathFile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
+        let pokemonImg = `<img src='${pathFile}'>`;
+        container.innerHTML = pokemonImg;
+    }
+
+    function AddPokemon_All(){
+        let fileName = '001';
+        let pathFile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
+        let pokemonImg = `<img src='${pathFile}'>`;
+        var img = document.querySelectorAll("#img")
+        let pokemons = '';
+        for (var i = 1; i < 890; i++) {
+            fileName = i.toString().padStart(3, '0');
+            pathFile = `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${fileName}.png`;
+            pokemonImg = `<img src='${pathFile}' onclick="remove()">`;
+            pokemons += pokemonImg;
+            // img.addEventListener("click",remove);
+        }
+        container.innerHTML = pokemons;
+    }
+
+    function remove() {
+        container.removeChild(event.target)
+    }
+</script>
+
+</html>
