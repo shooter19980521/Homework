@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>拼圖</title>
+    <style>
+        #dvPuzzle {
+            width: 480px;
+            height: 480px;
+            border: solid 4px black;
+            padding: 0px;
+            margin: auto;
+            display: none;
+        }
+        .PicCell {
+            width: 118px;
+            height: 118px;
+            border-top: solid 1px white;
+            border-left: solid 1px white;
+            border-right: solid 1px gray;
+            border-bottom: solid 1px gray;
+            float: left;
+            overflow: hidden;
+        }
+        #winner {
+            color: red;
+            font-size: 30px;
+            text-align: center;
+        }
+        .col-12 {
+            text-align: center;
+        }
+        #img {
+            display: none;
+            margin: auto;
+        }
+        #display-img{
+            display: none;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        $(function () {
+            var a = -1;
+            var posConv = {};
+            for (var i = 0; i < 16; i++) {
+                $("#dvPuzzle").append("<div class='PicCell' id='Pic" + i + "'><img src='https://picsum.photos/480/480/?random=100' /></div>");
+                var row = parseInt(i / 4);
+                var col = i % 4;
+                $("#Pic" + i + " img").css("margin-left", col * -120 + 1).css("margin-top", row * -120 + 1);
+                posConv[i] = { row: row, col: col };
+            }
+            $("#Pic0 img").remove();
+            $(".PicCell").click(function () {
+                var cells = $("#dvPuzzle div");
+                var i = cells.index(this);
+                var toCheck = getNearPos(i);
+                while (toCheck.length > 0) {
+                    var j = toCheck.pop();
+                    if (cells.eq(j).attr("id") == "Pic0") {
+                        if (i > j) { var k = j; j = i; i = k; }
+                        var ahead = cells.eq(i);
+                        var behind = cells.eq(j);
+                        var behindPrev = behind.prev();
+                        if (Math.abs(i - j) == 1)
+                            behind.after(ahead);
+                        else {
+                            ahead.after(behind);
+                            behindPrev.after(ahead);
+                        }
+                    }
+                }
+                win();
+            });
+            function getNearPos(i) {
+                var pool = [];
+                var row = posConv[i].row, col = posConv[i].col;
+                if (row > 0)
+                    pool.push(i - 4);
+                if (row < 4)
+                    pool.push(i + 4);
+                if (col > 0)
+                    pool.push(i - 1);
+                if (col < 4)
+                    pool.push(i + 1);
+                return pool;
+            }
+            $("#button").click(function () {
+                $("#dvPuzzle").css("display", "block");
+                $("#button").css ("display","none");
+                $("#display-img").css("display","block");
+                for (var i = 0; i < 600; i++) {
+                    var cells = $("#dvPuzzle div");
+                    var toMove = getNearPos(cells.index($("#Pic0")[0]));
+                    cells.eq(toMove[parseInt(Math.random() * toMove.length)]).click();
+                }
+            });
+            $("#display-img").click(function () {
+                a = a * -1;
+                var display = document.getElementById("display-img");
+                if (a == 1) {
+                    $("#img").css("display", "flex");
+                } else {
+                    $("#img").css("display", "none");
+                }
+            });
+            function win() {
+                let winner = document.getElementById('winner');
+                winner.innerText = "";
+                let ifwin = true;
+                var cells = $("#dvPuzzle div");
+                let cost = 0;
+                for (item of cells) {
+                    if (item["id"] == `Pic${cost}`) {
+                        cost++;
+                    }
+                    else {
+                        ifwin = false;
+                        break;
+                    }
+                }
+                if (ifwin) {
+                    winner.innerText = "恭喜獲勝";
+                }
+            }
+        })
+    </script>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div id="dvPuzzle"></div>
+            </div>
+            <div class="col-12 startgame">
+                <input id="button" type="button" value="遊戲開始">
+            </div>
+            <div class="col-12">
+                <input id="display-img" type="button" value="開關圖片">
+            </div>
+            <div class="col-12">
+                <div id="winner"></div>
+            </div>
+            <div class="col-12">
+                <img id="img" src="https://picsum.photos/480/480/?random=100" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+</html>
+    
+    
+  
+  
+

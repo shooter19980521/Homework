@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            text-align: center;
+        }
+
+        .header {
+            width: 98%;
+            border: 1px solid black;
+            height: 100px;
+        }
+
+        .row {
+            margin: 0;
+        }
+
+        .col-2 {
+            padding: 0;
+        }
+
+        .td {
+            width: 14%;
+            border: 1px solid black;
+            border-top: none;
+        }
+
+        .up {
+            border-bottom: 1px solid #000;
+        }
+
+        .up {
+            height: 30px;
+        }
+
+        .down {
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="">年</label><input type="text" id="year">
+    <label for="">月</label><input type="text" id="month">
+    <label for="">日</label><input type="text" id="day">
+    <label for="">事件</label><input type="text" id="event">
+    <button onclick="out()">送出</button>
+    <div class="container">
+        <div class="row">
+            <table class="header">
+                <tr>
+                    <td id="header_td">
+
+                    </td>
+                </tr>
+            </table>
+            <table style="width: 100%;">
+                <tr class="row">
+                    <td class="td">星期日</td>
+                    <td class="td">星期一</td>
+                    <td class="td">星期二</td>
+                    <td class="td">星期三</td>
+                    <td class="td">星期四</td>
+                    <td class="td">星期五</td>
+                    <td class="td">星期六</td>
+                </tr>
+            </table>
+            <table>
+                <tr class="row" id="content">
+                </tr>
+            </table>
+            <button onclick="Next()">下個月</button>
+            <button onclick="Last()">上個月</button>
+        </div>
+    </div>
+
+    <script>
+
+        var test;
+
+        window.onload = $.ajax({
+            type: "Get",
+            url: "http://127.0.0.1:5500/Calendar.json",
+            success: function (response) {
+                var response = response;
+                test = response;
+                debugger;
+                open(response);
+            }
+        });
+        var content = $("#content");
+        var header_td = $("#header_td")
+        var td;
+        var month = new Date().getMonth();
+        var year = new Date().getFullYear();
+        // var d = new Date();
+        var day = new Date(year, month, 01).getDay();
+        console.log(day);
+        var day_number = new Date(2020, month + 1, 0).getDate();
+        var date = 0;
+        let text = " ";
+        // window.onload = open;
+
+
+        function Next() {
+            if (month < 11) {
+                content.html(" ");
+                td = " ";
+                header_td.html(" ")
+                month++;
+                d = new Date(year, month, 01);
+                day = d.getDay()
+                day_number = new Date(year, month + 1, 0).getDate();
+                var date = 0;
+
+                open(test);
+            }
+            else {
+                month = 0;
+                year++;
+                content.html(" ");
+                td = " ";
+                header_td.html(" ")
+                d = new Date(year, month, 01);
+                day = d.getDay()
+                day_number = new Date(year, month + 1, 0).getDate();
+                open(test);
+            }
+
+        }
+        function Last() {
+            if (month <= 0) {
+                month = 11;
+                year--;
+                content.html(" ");
+                td = " ";
+                header_td.html(" ")
+                d = new Date(year, month, 01);
+                day = d.getDay()
+                day_number = new Date(year, month - 1, 0).getDate();
+                date = 0;
+                open(test);
+            }
+            else {
+                content.html(" ");
+                td = " ";
+                header_td.html(" ")
+                month--;
+                d = new Date(year, month, 01);
+                day = d.getDay()
+                day_number = new Date(year, month - 1, 0).getDate();
+                open(test);
+            }
+        }
+
+
+        function open(response) {
+            header_td.text(`${year}年${month + 1}月`);
+            for (var i = 0; i < 42; i++) {
+
+                if (i < day || i > day_number + day - 1) {
+                    date = " ";
+                }
+                else {
+                    date++;
+                    for (var z in response.event1) {
+                        if (response.event1[z].year == year && response.event1[z].month == month + 1 && parseInt(response.event1[z].day) == date) {
+                            text += `${response.event1[z].event}\n`
+                        }
+                        else {
+                            text += " "
+                        }
+                    }
+
+                }
+
+                td += `<td class="td"><div class="row"><div class="col-12 up">${date}</div><div class="col-12 down">${text}</div></div></td>`
+                text = " "
+
+            }
+            content.append(td)
+        }
+
+
+        function out() {
+            var input_year = $("#year").val()
+            var input_month = $("#month").val()
+            var input_day = $("#day").val()
+            var input_event = $("#event").val()
+            test.event1.push({year:`${input_year}`,month:`${input_month}`,day:`${input_day}`,event: `${input_event}`})
+            content.html(" ");
+                td = " ";
+                header_td.html(" ")
+            open(test)
+        }
+
+
+    </script>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
